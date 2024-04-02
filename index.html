@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,16 @@
 <body>
     <div class="content">
         <svg id="placement" width="100" height="100">
-            <circle id="aim" cx="50%" cy="50%" r="40" stroke="gray" stroke-width="2" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="touch()">
+            <circle id="aim" cx="50%" cy="50%" r="40" stroke="gray" stroke-width="5" fill="none" xmlns="http://www.w3.org/2000/svg" onclick="start()">
                 <animate attributeName="r" values="40;35;40" dur="2s" repeatCount="indefinite" />
             </circle>
-        </svg>          
+        </svg>
+        <div class="startMenu">
+            <h1>Click on the circle to start</h1>
+        </div>
+        <div class="scoreMenu">
+            <h2 class="score"></h2>
+        </div>
     </div>
 </body>
 <script src="js/main.js"></script>
