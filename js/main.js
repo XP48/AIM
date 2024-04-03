@@ -5,23 +5,51 @@ const placement = document.getElementById("placement");
 const aim = document.getElementById("aim");
 const aimAnim = document.getElementById("aimAnimate");
 const startMenu = document.querySelector('.startMenu');
-const scoreMenu = document.querySelector('.scoreMenu');
-const scoreTxt = document.querySelector('.score');
+const timeMenu = document.querySelector('.timeMenu');
+const timeTxt = document.querySelector('.timer');
 const zone = document.querySelector('.content');
 const slider = document.getElementById('circleSize');
 const duration = document.getElementById('time');
 
-var score = 0;
-var failed = 0;
+
+var score;
+var failed;
 var started = false;
+let timeLeft;
+
+
+const timer = new Worker('../js/timer.js');
+
+timer.onmessage = function(event) {
+    const data = event.data;
+    // Mettre à jour l'interface utilisateur avec le temps restant
+    timeLeft = data
+    if(timeLeft == 0) init();
+    timeTxt.textContent = `Time left : ${timeLeft}`;
+};
+
 
 function start() {
     aim.setAttribute("onclick", 'touch()');
     zone.setAttribute("onclick", "fail()");
     startMenu.style.display = 'none';
-    scoreMenu.style.display = 'block';
+    timeMenu.style.display = 'block';
     touch();
+    score = 0;
+    failed = 0
+    timeLeft = document.getElementById('time').value;
+    timeTxt.textContent = `Time left : ${timeLeft}`;
+    timer.postMessage( { action: 'start', timeLeft : timeLeft} )
     started = true;
+}
+function init() {
+    placement.style.left = '50%';
+    placement.style.top = '40%';
+    placement.style.transform = `translate(-50%, -40%)`;
+    aim.setAttribute("onclick", 'start()');
+    startMenu.style.display = 'block';
+    timeMenu.style.display = 'none';
+    started = false;
 }
 
 function touch() {
@@ -32,7 +60,6 @@ function touch() {
     placement.style.left = posx + '%';
     placement.style.top = posy + '%';
     placement.style.transform = `translate(-${posx}%, -${posy}%)`;
-    scoreTxt.textContent = `Score : ${score}`;
 }
 
 function fail() {
@@ -47,3 +74,12 @@ function resize() {
     placement.setAttribute("width", val*2);
     placement.setAttribute("height", val*2);
 }
+
+// function time() {
+//     if (timeLeft == 0) {
+//         init();
+//     } else {
+//         timeTxt.textContent = `Time left : ${timeLeft}`;
+//         timeLeft--;
+//     }
+// }
