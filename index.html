@@ -15,6 +15,17 @@
     <div class="content">
         <div class="startMenu">
             <h1>Click on the circle to start</h1>
+            <div class="settings">
+                <div>
+                    <label for="time">Time :</label>
+                    <input id="time" type="number" name="time" min="5" max="20" value="10">
+                    <p>seconds</p>
+                </div>
+                <div>
+                    <label for="circleSize">Circle's size :</label>
+                    <input type="range" id="circleSize" name="circleSize" min="2" max="10" value="5" step="1" onchange="resize()">
+                </div>
+            </div>
         </div>
         <div class="scoreMenu">
             <h2 class="score"></h2>

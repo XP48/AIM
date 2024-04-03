@@ -15,7 +15,7 @@
     background-color: var(--fond);
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
 }
 #placement {
     position: absolute;
@@ -33,7 +33,37 @@
     text-align: center;
     color: var(--text);
     font-family: monospace;
-    margin-top: 10%;
+    vertical-align: top;
+    height: 50%;
+}
+.settings {
+    margin-top: 25%;
+}
+.settings div {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    font-size: 20px;
+}
+.settings label {
+    font-size: large;
+    font-size: 20px;
+    margin-right: 2%;
+}
+#time {
+    background-color: transparent;
+    border: none;
+    width: 40px;
+    height: 30px;
+    color: var(--text);
+    font-size: 20px;
+    border-bottom: 3px solid var(--circle);
+    outline: none;
+    appearance: none;
+    margin-right: 2%;
+}
+#circleSize {
+    background: var(--circle);
 }
 .scoreMenu {
     text-align: center;
