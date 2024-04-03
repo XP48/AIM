@@ -37,8 +37,8 @@ function start() {
     touch();
     score = 0;
     failed = 0
-    timeLeft = document.getElementById('time').value;
-    timeTxt.textContent = `Time left : ${timeLeft}`;
+    timeLeft = document.getElementById('time').value - 1;
+    // timeTxt.textContent = `Time left : ${timeLeft}`;
     timer.postMessage( { action: 'start', timeLeft : timeLeft} )
     started = true;
 }
