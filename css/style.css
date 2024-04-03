@@ -64,6 +64,7 @@
 }
 #circleSize {
     background: var(--circle);
+    cursor: pointer;
 }
 .scoreMenu {
     text-align: center;

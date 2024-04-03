@@ -3,10 +3,13 @@ const circleErrorColor = getComputedStyle(document.documentElement).getPropertyV
 
 const placement = document.getElementById("placement");
 const aim = document.getElementById("aim");
+const aimAnim = document.getElementById("aimAnimate");
 const startMenu = document.querySelector('.startMenu');
 const scoreMenu = document.querySelector('.scoreMenu');
 const scoreTxt = document.querySelector('.score');
 const zone = document.querySelector('.content');
+const slider = document.getElementById('circleSize');
+const duration = document.getElementById('time');
 
 var score = 0;
 var failed = 0;
@@ -34,4 +37,13 @@ function touch() {
 
 function fail() {
     failed++;
+}
+
+function resize() {
+    let val = slider.value;
+    console.log(val)
+    aim.setAttribute("r", val);
+    aimAnim.setAttribute("values", `${val};${val-5};${val}`);
+    placement.setAttribute("width", val*2);
+    placement.setAttribute("height", val*2);
 }
