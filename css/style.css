@@ -1,7 +1,8 @@
 :root {
-    --circle : gray;
-    --fond : #2b2b2b;
-    --text : #f1f1f1;
+    --circle: gray;
+    --fond: #2b2b2b;
+    --text: #f1f1f1;
+    --circle-error: rgb(255, 120, 120);
 }
 * {
     margin: 0;
