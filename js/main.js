@@ -18,7 +18,7 @@ var started = false;
 let timeLeft;
 
 
-const timer = new Worker('./timer.js');
+const timer = new Worker('timer.js');
 
 timer.onmessage = function(event) {
     const data = event.data;
