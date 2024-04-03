@@ -79,6 +79,7 @@
     text-align: center;
     color: var(--text);
     font-family: monospace;
+    opacity: 0;
 }
 .scoreData {
     color: var(--result);
