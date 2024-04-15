@@ -39,30 +39,31 @@ function start() {
     timeMenu.style.display = 'block';
     touch();
     score = 0;
-    failed = 0
+    failed = 0;
     timeLeft = document.getElementById('time').value;
     timer.postMessage( { action: 'start', timeLeft : timeLeft-1} )
     started = true;
 }
 function init() {
+    failed--; // non résolu
+    started = false;
     placement.style.left = '50%';
     placement.style.top = '40%';
     placement.style.transform = `translate(-50%, -40%)`;
-    sprec.textContent = `${Math.round((score/(score+failed))*100)}%`;
+    sprec.textContent = `${Math.floor((score/(failed))*100)}%`;
     scount.textContent = score;
     stime.textContent = `${timeLeft} `;
     timeMenu.style.display = 'none';
     scoreMenu.style.opacity = 1;
     startMenu.style.display = 'block';
     aim.setAttribute("onclick", 'start()');
-    started = false;
 }
 
 function touch() {
     score++
     let posx = Math.floor(Math.random() * (91 - 10) + 10);
     let posy = Math.floor(Math.random() * (91 - 10) + 10);
-
+    console.log(failed);
     placement.style.left = posx + '%';
     placement.style.top = posy + '%';
     placement.style.transform = `translate(-${posx}%, -${posy}%)`;
