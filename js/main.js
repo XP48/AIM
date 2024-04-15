@@ -48,7 +48,7 @@ function init() {
     placement.style.left = '50%';
     placement.style.top = '40%';
     placement.style.transform = `translate(-50%, -40%)`;
-    sprec.textContent = `${Math.round((score/failed)*100)}%`;
+    sprec.textContent = `${Math.round((score/(score+failed))*100)}%`;
     scount.textContent = score;
     stime.textContent = `${timeLeft} `;
     timeMenu.style.display = 'none';
